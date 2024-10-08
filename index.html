@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WatchReloaded - Download</title>
+    <style>
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: white;
+    /* position: relative; Entfernt */
+}
+
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Video Container für Desktops */
+        .video-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Für größere Bildschirme wie Desktops */
+        @media (min-width: 1024px) {
+            .video-container {
+                max-width: 400px; /* Kleinere Breite auf großen Bildschirmen */
+            }
+        }
+
+        /* Für Tablets und kleine Laptops */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .video-container {
+                max-width: 90%; /* Mehr Platz auf Tablets */
+            }
+        }
+
+        /* Für Handys und sehr kleine Bildschirme */
+        @media (max-width: 767px) {
+            video {
+                width: 90vw; /* Größere Videoanzeige auf Handys */
+            }
+            .video-container {
+                max-width: none; /* Entferne die Begrenzung auf kleineren Bildschirmen */
+            }
+        }
+
+        #backgroundCanvas {
+    position: fixed; /* Ändere von 'absolute' zu 'fixed' */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Stelle sicher, dass es hinter allen anderen Elementen liegt */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Passe die Transparenz an */
+}
+
+
+
+
+        #content {
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 1;
+            padding: 20px;
+            margin-top: 50px; /* Genug Platz für das Scrolling nach oben */
+        }
+
+
+        h1 {
+            color: red;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 20px;
+            padding: 15px 30px;
+            border: 2px solid red;
+            border-radius: 10px;
+            background: rgba(255, 0, 0, 0.2);
+            color: red;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: background 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: rgba(255, 0, 0, 0.4);
+            transform: scale(1.05);
+        }
+
+        .info {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1em;
+        }
+
+        /* Stil für das Installations-Tutorial */
+        .tutorial {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .tutorial h2 {
+            color: #ff4d4d;
+            margin-bottom: 20px;
+        }
+
+        .tutorial-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tutorial-step img {
+            width: 200px;
+            height: auto;
+            border: 2px solid #ff4d4d;
+            border-radius: 10px;
+            margin-right: 20px;
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tutorial-step img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(255, 0, 0, 0.5);
+        }
+
+        .tutorial-step p {
+            flex: 1;
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
+        /* Responsive Anpassungen für Bilder */
+        @media (max-width: 768px) {
+            .tutorial-step {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .tutorial-step img {
+                margin-right: 0;
+                margin-bottom: 10px;
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="backgroundCanvas"></canvas>
+    <div id="content">
+        <h1>WatchReloaded</h1>
+        <div class="video-container">
+            <video src="video_Advertisement.mp4" autoplay muted loop></video>
+        </div>
+        <p>Lade die WatchReloaded App für Android herunter, um deine Lieblingsinhalte zu streamen.</p>
+        <a href="WatchReloaded.apk" class="btn">Download für Android</a>
+        <h6>Current App Version 1.0.0</h6>
+        <div class="tutorial">
+            <h2>Installations Tutorial:</h2>
+
+            <div class="tutorial-step">
+                <img src="tutorial/1.jpg" alt="Schritt 1: App herunterladen">
+                <p>Besuche den Download-Link und lade die WatchReloaded APK-Datei auf dein Android-Gerät herunter.</p>
+            </div>
+
+            <div class="tutorial-step">
+                <img src="tutorial/2.jpg" alt="Schritt 2: Installation erlauben">
+                <p>Bestätige den Download falls nötig!</p>
+            </div>
+
+            <div class="tutorial-step">
+                <img src="tutorial/3.jpg" alt="Schritt 3: App installieren">
+                <p>Aktiviere die Installation aus unbekannten Quellen. Dazu sollte ein Fenster erscheinen.</p>
+                
+            </div>
+
+            <div class="tutorial-step">
+                <img src="tutorial/4.jpg" alt="Schritt 4: App starten">
+                <img src="tutorial/5.jpg" alt="Schritt 4: App starten">
+                <p>Öffne die heruntergeladene APK-Datei und folge den Anweisungen auf dem Bildschirm, um die App zu installieren.</p>
+                <p>Nach der Installation findest du die WatchReloaded App in deinem App-Menü. Starte die App und genieße das Streaming!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById('content').style.opacity = 1;
+        }, 1000);
+
+        const canvas = document.getElementById('backgroundCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Point {
+            constructor(x, y, vx, vy) {
+                this.x = x;
+                this.y = y;
+                this.vx = vx;
+                this.vy = vy;
+                this.radius = 3;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x <= 0 || this.x >= canvas.width) this.vx *= -1;
+                if (this.y <= 0 || this.y >= canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';  // Hintergrundfarbe etwas sichtbarer gemacht
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            }
+        }
+
+        const points = [];
+        const numPoints = 60;
+
+        for (let i = 0; i < numPoints; i++) {
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height;
+            const vx = (Math.random() - 0.5) * 2;
+            const vy = (Math.random() - 0.5) * 2;
+            points.push(new Point(x, y, vx, vy));
+        }
+
+        function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';  // Setze hier eine Hintergrundfarbe für das Canvas
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    points.forEach(point => {
+        point.update();
+        point.draw();
+    });
+
+    // Linien zwischen den Punkten zeichnen
+    for (let i = 0; i < points.length; i++) {
+        for (let j = i + 1; j < points.length; j++) {
+            const dx = points[i].x - points[j].x;
+            const dy = points[i].y - points[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 100) {
+                ctx.beginPath();
+                ctx.moveTo(points[i].x, points[i].y);
+                ctx.lineTo(points[j].x, points[j].y);
+                ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance / 100})`;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
+        }
+    }
+
+    requestAnimationFrame(animate);
+}
+
+
+        animate();
+    </script>
+</body>
+</html>
